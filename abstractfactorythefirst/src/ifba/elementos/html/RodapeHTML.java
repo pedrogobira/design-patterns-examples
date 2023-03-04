@@ -1,16 +1,31 @@
 package ifba.elementos.html;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import ifba.elementos.Rodape;
 
-public class RodapeHTML extends Rodape {
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-	@Override
-	public String getOutput() {
-		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-		return "<hr/>" + df.format(getData()) +
-				"</body></html>\n";
-	}
+public class RodapeHTML implements Rodape {
+    private Date data;
 
+    public RodapeHTML(Date data) {
+        this.data = data;
+    }
+
+    @Override
+    public Date getData() {
+        return data;
+    }
+
+    @Override
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    @Override
+    public String getOutput() {
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        return "<hr/>" + df.format(getData()) + "</body></html>\n";
+    }
 }

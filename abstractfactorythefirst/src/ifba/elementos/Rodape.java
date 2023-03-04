@@ -1,16 +1,11 @@
 package ifba.elementos;
+
 import java.util.Date;
 
-public abstract class Rodape {
-	Date data;
+public interface Rodape {
+    Date getData();
 
-	public Date getData() {
-		return data;
-	}
+    void setData(Date data);
 
-	public void setData(Date data) {
-		this.data = data;
-	}
-	
-	public abstract String getOutput();
+    String getOutput();
 }
