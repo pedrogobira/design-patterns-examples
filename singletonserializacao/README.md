@@ -1,0 +1,7 @@
+# Singleton e serialização de objetos
+
+A serialização do Singleton SerializacaoSingleton funciona de forma apropriada, ou seja, o armazenamento do estado do objeto no arquivo txt é feito corretamente, mas a desserialização (reconstrução do objeto) falha porque os dados desserializados não são levados em consideração. 
+
+Solicitada a leitura do objeto com base no arquivo, o método readResolve é executado, solicitando que a instância em memória do Singleton seja retornada, independente do estado do objeto armazenado no arquivo, isso caso a implementação estivesse correta, porque o método responsável por gerenciar a instância da classe SerializacaoSingleton em momento algum armazena a instância construída, resultando sempre na construção de um objeto novo.
+
+Uma vez corrigido o defeito no método responsável pela construção da instância, o Singleton funciona apropriadamente, mas a desserialização continua sendo um processo inútil, sendo esse o cenário ideal, porque da mesma forma que uma classe Singleton deve ser responsável por sua instanciação, a mesma também deve ser responsável pelo seu estado, ou seja, não se deve terceirizar a instanciação nem a modificação de estado de um Singleton, porque isso resulta em side effects (em português, efeitos colaterais), caso em que uma rotina que depende do estado da instância possui sua execução deturbada devido a mudança do estado da instância por outra rotina. Entretanto, caso seja desejado a desserialização respeitando os dados armazenados em vez do padrão Singleton, basta a remoção do método readResolve.
