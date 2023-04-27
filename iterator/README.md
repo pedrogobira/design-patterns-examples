@@ -11,3 +11,11 @@ Declarar uma interface para uma coleção e para um iterator. A coleção instan
 ## Consequências
 
 Princípio da responsabilidade única, porque separa a coleção dos algortimos de busca. Princípio aberto/fechado, porque permite a extensibilidade por meio de implementação das interfaces em vez da modificação das classes já existentes. Pode causar problemas de eficiência caso o cliente iterasse diretamente sobre a coleção.
+
+## Diagrama
+
+O diagrama de classes UML pode ser encontrado no repositório com o nome `diagrama.pdf`.
+
+## Implementação
+
+A implementação pode ser vistoriada neste repositório.
